@@ -8,7 +8,6 @@ CTitleScene::CTitleScene()
 {
 }
 
-
 CTitleScene::~CTitleScene()
 {
 	ReleaseObjects();
