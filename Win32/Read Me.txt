@@ -1,0 +1,30 @@
+
+Win32API Framework (at Lusain. Kim)
+
+필요한 지식 : Windows API, C++11
+
+사용 방법 : 
+
+1. Scene을 상속하여 원하는 프로그램을 만듭니다.
+	Scene은 가상함수로 키입력, 마우스입력, 기타윈도우메시지를 상속할 수 있습니다.
+	Scene의 함수를 적절히 오버라이딩하여 사용하면 됩니다.
+	모든 Scene은 wstring 형식의 Tag가 필요합니다.
+	모든 Scene은 Framework의 m_lScene이 관리합니다.
+	모든 Scene은 unique_ptr로 생성됩니다.
+	
+2. Framework에서 만든 Scene의 헤더 파일을 포함(include)합니다.
+
+3. Framework의 BuildObject에서 해당 Scene을 m_lScene에 push_back 합니다.
+	(TitleScene과 LobbyScene처럼)
+	push_back 한 뒤 BuildObject를 호출하여 초기화합니다.
+
+4. 장면 전환을 하는 방법은 Framework의 ChangeScene을 이용합니다.
+	만약 전환한 뒤 삭제하려면 두 번째 인자를 true로 합니다.
+
+5. 모든 헤더파일은 stdafx.h에서 관리합니다.
+
+6. stdafx.h에 USE_LIMIT_FPS 를 정의하여 최대 FPS를 제한할 수 있습니다.
+
+7. CLIENT_WIDTH, CLIENT_HEIGHT의 값을 변경하여 프로그램 크기를 조절할 수 있습니다.
+
+마지막. 뜯을 수 있으면 잘 뜯어서 사용하세요.
